@@ -1,16 +1,15 @@
 import React from "react";
 import * as Styled from "./styles";
+import { Background } from "../../Components/Background";
 
 export interface IHomeScreenProps {
   title?: string;
 }
 
-export const HomeScreen: React.FC<IHomeScreenProps> = ({
-  title = "Home Screen Page",
-}) => {
+export const HomeScreen: React.FC<IHomeScreenProps> = ({}) => {
   return (
     <Styled.Container>
-      <Styled.Title>{title}</Styled.Title>
+      <Background backgroundOfType={"night"} resizeTypeMode={"cover"} />
     </Styled.Container>
   );
 };
