@@ -4,6 +4,7 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const Title = styled.Text`
-  font-size: 25px;
+export const BackgroundImage = styled.ImageBackground`
+  flex: 1;
+  align-items: center;
 `;
