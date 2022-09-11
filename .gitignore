@@ -48,7 +48,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-
+/Src/Config/*
 # Expo
 .expo/
 web-build/
