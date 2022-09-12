@@ -7,3 +7,5 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-size: 25px;
 `;
+
+export const ContainerCards = styled.View``;

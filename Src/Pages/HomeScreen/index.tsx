@@ -4,6 +4,9 @@ import { Background } from "../../Components/Background";
 import { getPermissionLocation } from "../../Utils/LocationUtils";
 import { apiKey } from "../../Config/config";
 import * as Styled from "./styles";
+import { Header } from "../../Components/Header";
+import { HorizontalCardList } from "../../Components/HorizontalCardList";
+import { VerticalCardList } from "../../Components/VerticalCardList";
 
 export interface IHomeScreenProps {}
 
@@ -22,7 +25,11 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
 
   return (
     <Styled.Container>
-      <Background backgroundOfType={"night"} resizeTypeMode={"cover"} />
+      <Background backgroundOfType={"night"} resizeTypeMode={"cover"}>
+        <Header />
+        <HorizontalCardList />
+        <VerticalCardList />
+      </Background>
     </Styled.Container>
   );
 };
