@@ -7,7 +7,7 @@ import { ListSubtitleSecondary } from "./styles";
 
 export interface IVerticalCardList {
   time?: string;
-  situation: string;
+  situation?: string;
 }
 
 const DATA = [

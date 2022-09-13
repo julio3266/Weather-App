@@ -1,10 +1,10 @@
 import { Action, ActionCreator } from "redux";
 import { ILocation } from "./types";
 
-export const GET_LOCATION_DATA = "GET_PERMISSION_LOCATION_STATUS";
-export const GetPermissionLocationStatus: ActionCreator<Action> = (
+export const SET_LOCATION_DATA = "GET_PERMISSION_LOCATION_STATUS";
+export const SetPermissionLocationStatus: ActionCreator<Action> = (
   payload: ILocation
 ) => ({
-  type: GET_LOCATION_DATA,
+  type: SET_LOCATION_DATA,
   payload,
 });
