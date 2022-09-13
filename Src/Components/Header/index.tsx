@@ -2,19 +2,21 @@ import React from "react";
 import * as Styled from "./styles";
 
 export interface IHeaderProps {
-  city: string;
-  state: string;
-  situation: string;
-  temperature: number;
-  min: number;
-  max: number;
+  city?: string;
+  state?: string;
+  situation?: string;
+  temperature?: number;
+  min?: number;
+  max?: number;
 }
 
-export const Header: React.FC<IHeaderProps> = () => {
+export const Header: React.FC<IHeaderProps> = ({ city, state }) => {
   return (
     <Styled.Container>
       <Styled.Row>
-        <Styled.SubTitle>Fortaleza, Ceara</Styled.SubTitle>
+        <Styled.SubTitle>
+          {city}, {state}
+        </Styled.SubTitle>
       </Styled.Row>
       <Styled.Row>
         <Styled.SecondarySubTitle>Tempo Nublado</Styled.SecondarySubTitle>

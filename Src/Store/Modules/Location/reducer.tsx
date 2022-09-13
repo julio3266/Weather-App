@@ -7,6 +7,10 @@ export const initialState: ILocation = {
     lat: null,
     long: null,
   },
+  place: {
+    city: null,
+    state: null,
+  },
   status: null,
 };
 
@@ -15,14 +19,18 @@ export const LocationReducer: Reducer<ILocation> = (
   action: Action | any
 ) => {
   switch (action.type) {
-    case actions.GET_LOCATION_DATA:
+    case actions.SET_LOCATION_DATA:
       return {
         ...state,
         coordinates: {
           lat: action.payload.coordinates.lat,
           long: action.payload.coordinates.long,
         },
-        status: action.payload.coordinates.status,
+        place: {
+          city: action.payload.place.city,
+          state: action.payload.place.state,
+        },
+        status: action.payload.status,
       };
     default:
       return state;

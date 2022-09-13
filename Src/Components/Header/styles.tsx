@@ -17,6 +17,7 @@ export const Title = styled.Text`
 
 export const SubTitle = styled.Text`
   font-size: 30px;
+  width: 80%;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
 `;
