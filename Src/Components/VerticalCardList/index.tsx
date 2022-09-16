@@ -10,6 +10,7 @@ export interface IVerticalListProps {
   tempMin: number;
   tempMax: number;
   situationPerDaily: string;
+  icon: string;
 }
 export interface IVerticalCardList {
   IVerticalListData: IVerticalListProps[];
@@ -29,7 +30,11 @@ export const VerticalCardList: React.FC<IVerticalCardList> = ({
           <Styled.Row>
             <Styled.ListSubtitle>{item.dailyName}</Styled.ListSubtitle>
             <Styled.ListSubtitleSecondary>
-              <Icon name="cloud" size={30} color={"#fff"} />
+              <Styled.Icon
+                source={{
+                  uri: `http://openweathermap.org/img/wn/${item.icon}@4x.png`,
+                }}
+              />
             </Styled.ListSubtitleSecondary>
             <Styled.ListSubtitleSecondary>
               {item.tempMin}

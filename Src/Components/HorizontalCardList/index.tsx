@@ -1,10 +1,11 @@
 import React from "react";
 import * as Styled from "./styles";
 import FtIcons from "react-native-vector-icons/FontAwesome";
-
+import { Image } from "react-native";
 export interface IDataListHorizontal {
   situationPerHour: string;
   hourly: string;
+  icon: string;
 }
 
 export interface IHorizontalProps {
@@ -22,9 +23,13 @@ export const HorizontalCardList: React.FC<IHorizontalProps> = ({
       renderItem={({ item }) => (
         <Styled.Column>
           <Styled.TitleList>{item.hourly}</Styled.TitleList>
-          <Styled.Icon>
-            <FtIcons name="cloud" size={30} color={"#fff"} />
-          </Styled.Icon>
+          <Styled.IconView>
+            <Styled.Icon
+              source={{
+                uri: `http://openweathermap.org/img/wn/${item.icon}@4x.png`,
+              }}
+            />
+          </Styled.IconView>
         </Styled.Column>
       )}
     />
