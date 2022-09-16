@@ -1,4 +1,7 @@
 # WeatherBuilders - React Native App - Expo
+<p align="center">
+ <img  src="https://i.ibb.co/cyMfT17/Simulator-Screen-Shot-i-Phone-11-Pro-Max-2022-09-16-at-12-10-17.png" alt="Weather-App-Simulator - React" width="250" height="550" />
+</p>
 
 Esse projeto foi desenvolvido em React Native - Expo com TypeScript
 
