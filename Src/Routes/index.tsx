@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeProvider } from "styled-components/native";
 import { Provider } from "react-redux";
-import { store } from "../Store";
+import store from "../Store";
 import theme from "../Global/theme";
 import { useFonts, Poppins_400Regular } from "@expo-google-fonts/poppins";
 import { HomeScreen } from "../Pages/HomeScreen";
@@ -17,6 +17,7 @@ export const Routes = () => {
   if (!fontsLoaded) {
     return;
   }
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
