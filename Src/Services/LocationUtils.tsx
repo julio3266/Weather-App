@@ -8,8 +8,8 @@ export const getPermissionLocation = async () => {
 
 export const reverseGeocoding = async (latitude, longitude) => {
   let result = await Location.reverseGeocodeAsync({
-    latitude: -23.559068004737092,
-    longitude: -46.655100579820434,
+    latitude: latitude,
+    longitude: longitude,
   });
   return result;
 };

@@ -1,5 +1,7 @@
 import { ILocation } from "./Modules/Location/types";
+import { IWeatherProps } from "./Modules/Weather/types";
 
-export interface ILocationData {
-  ILocationState: ILocation;
+export interface IReduxState {
+  location: ILocation;
+  weather: IWeatherProps;
 }
