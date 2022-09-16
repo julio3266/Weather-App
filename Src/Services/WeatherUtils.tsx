@@ -38,6 +38,7 @@ export const parsedWeatherDataPerHour = (weatherHourData) => {
       let parsed = {
         hourly: parsedUnixTime,
         situationPerHour: manyWeather.weather?.[0]?.description,
+        icon: manyWeather.weather?.[0]?.icon,
       };
 
       return parsed;
@@ -50,12 +51,15 @@ const parsedWeatherPerDay = (weatherPerDay) => {
     let parsedUnixWeekDay = format(new Date(dailyData.dt * 1000), "eeee", {
       locale: ptBR,
     });
+
     let parsed = {
       dailyName: parsedUnixWeekDay,
       tempMin: dailyData.temp.min,
       tempMax: dailyData.temp.max,
       situationPerDaily: dailyData.weather?.[0].description,
+      icon: dailyData.weather?.[0]?.icon,
     };
+
     return parsed;
   });
   return { weatherPerDaily };

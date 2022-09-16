@@ -26,4 +26,9 @@ export const TitleList = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular}; ;
 `;
 
-export const Icon = styled.View``;
+export const IconView = styled.View``;
+
+export const Icon = styled.Image`
+  height: 60px;
+  width: 50px;
+`;

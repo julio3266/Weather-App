@@ -4,13 +4,6 @@ export interface IWeatherProps {
   nextDailyWeather: IDailyWeather[];
 }
 
-export interface IDailyWeather {
-  dailyName: string;
-  tempMin: number;
-  tempMax: number;
-  situationPerDaily: string;
-}
-
 export interface ICurrentWeather {
   currentWeather: number;
   tempMin: number;
@@ -18,7 +11,16 @@ export interface ICurrentWeather {
   currentSituation: string;
 }
 
+export interface IDailyWeather {
+  dailyName: string;
+  tempMin: number;
+  tempMax: number;
+  situationPerDaily: string;
+  icon: string;
+}
+
 export interface INextHoursWeather {
   situationPerHour: string;
   hourly: string;
+  icon: string;
 }

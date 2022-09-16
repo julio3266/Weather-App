@@ -13,6 +13,7 @@ export const initialState: IWeatherProps = {
     {
       hourly: null,
       situationPerHour: null,
+      icon: null,
     },
   ],
   nextDailyWeather: [
@@ -21,6 +22,7 @@ export const initialState: IWeatherProps = {
       tempMin: null,
       tempMax: null,
       situationPerDaily: null,
+      icon: null,
     },
   ],
 };
