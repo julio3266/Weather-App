@@ -2,6 +2,7 @@ export interface IWeatherProps {
   currentWeather: ICurrentWeather;
   nextHoursWeather: INextHoursWeather[];
   nextDailyWeather: IDailyWeather[];
+  isLoading: ILoading;
 }
 
 export interface ICurrentWeather {
@@ -23,4 +24,8 @@ export interface INextHoursWeather {
   situationPerHour: string;
   hourly: string;
   icon: string;
+}
+
+export interface ILoading {
+  loading: boolean;
 }

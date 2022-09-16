@@ -2,6 +2,7 @@ import React from "react";
 import * as Styled from "./styles";
 import FtIcons from "react-native-vector-icons/FontAwesome";
 import { Image } from "react-native";
+import { LoaderAnimated } from "../LoaderAnimated";
 export interface IDataListHorizontal {
   situationPerHour: string;
   hourly: string;

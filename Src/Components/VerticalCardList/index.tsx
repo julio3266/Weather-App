@@ -1,9 +1,5 @@
 import React from "react";
 import * as Styled from "./styles";
-import Icon from "react-native-vector-icons/Ionicons";
-import AntIcons from "react-native-vector-icons/AntDesign";
-import FaIcons from "react-native-vector-icons/FontAwesome5";
-import { ListSubtitleSecondary } from "./styles";
 
 export interface IVerticalListProps {
   dailyName: string;
