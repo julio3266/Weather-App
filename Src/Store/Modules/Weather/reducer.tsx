@@ -25,6 +25,7 @@ export const initialState: IWeatherProps = {
       icon: null,
     },
   ],
+  isLoading: { loading: true },
 };
 
 export const WeatherReducer: Reducer<IWeatherProps> = (
@@ -40,6 +41,7 @@ export const WeatherReducer: Reducer<IWeatherProps> = (
           tempMin: action?.payload?.currentWeather?.tempMax,
           currentWeather: action.payload.currentWeather.currentWeather,
           currentSituation: action.payload.currentWeather.currentSituation,
+          loading: action.payload.currentWeather.loading,
         },
       };
     case actions.SET_WEATHER_PER_HOUR:
@@ -51,6 +53,11 @@ export const WeatherReducer: Reducer<IWeatherProps> = (
       return {
         ...state,
         nextDailyWeather: [...action.payload.nextDailyWeather],
+      };
+    case actions.SET_LOADING_STATE:
+      return {
+        ...state,
+        isLoading: { loading: action.payload.isLoading.loading },
       };
     default:
       return state;

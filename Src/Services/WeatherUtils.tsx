@@ -54,8 +54,8 @@ const parsedWeatherPerDay = (weatherPerDay) => {
 
     let parsed = {
       dailyName: parsedUnixWeekDay,
-      tempMin: dailyData.temp.min,
-      tempMax: dailyData.temp.max,
+      tempMin: dailyData.temp.min.toFixed(0),
+      tempMax: dailyData.temp.max.toFixed(0),
       situationPerDaily: dailyData.weather?.[0].description,
       icon: dailyData.weather?.[0]?.icon,
     };

@@ -10,6 +10,7 @@ import {
   SetCurrentWeatherData,
   SetWeatherPerHour,
   SetWeatherPerDaily,
+  SetLoadingState,
 } from "../../Store/Modules/Weather/actions";
 import { Background } from "../../Components/Background";
 import { Header } from "../../Components/Header";
@@ -17,8 +18,40 @@ import { HorizontalCardList } from "../../Components/HorizontalCardList";
 import { VerticalCardList } from "../../Components/VerticalCardList";
 import { IReduxState } from "../../Store/types";
 import { fetchOpenWeatherCurrentData } from "../../Services/WeatherUtils";
+import { LoaderAnimated } from "../../Components/LoaderAnimated";
 
 export interface IHomeScreenProps {}
+
+const renderLoader = (loading) => {
+  return <LoaderAnimated loading={loading} />;
+};
+
+const renderHomeScreen = (
+  place,
+  currentWeather,
+  tempMax,
+  tempMin,
+  currentSituation,
+  nextHoursWeather,
+  nextDailyWeather
+) => {
+  return (
+    <Styled.Container>
+      <Background backgroundOfType={"night"} resizeTypeMode={"cover"}>
+        <Header
+          city={place?.city}
+          state={place?.state}
+          temperature={currentWeather}
+          max={tempMax}
+          min={tempMin}
+          situation={currentSituation}
+        />
+        <HorizontalCardList dataHorizontalList={nextHoursWeather} />
+        <VerticalCardList IVerticalListData={nextDailyWeather} />
+      </Background>
+    </Styled.Container>
+  );
+};
 
 export const HomeScreen: React.FC<IHomeScreenProps> = () => {
   const dispatch = useDispatch();
@@ -30,6 +63,9 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
   );
   const { nextHoursWeather, nextDailyWeather } = useSelector(
     (state: IReduxState) => state.weather
+  );
+  const { loading } = useSelector(
+    (state: IReduxState) => state.weather.isLoading
   );
 
   useEffect(() => {
@@ -75,24 +111,25 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
         dispatch(
           SetWeatherPerDaily({ nextDailyWeather: weather.weatherPerDaily })
         );
+
+        dispatch(SetLoadingState({ isLoading: { loading: false } }));
       })
       .catch((error) => {});
   }, [coordinates]);
 
   return (
-    <Styled.Container>
-      <Background backgroundOfType={"night"} resizeTypeMode={"cover"}>
-        <Header
-          city={place?.city}
-          state={place?.state}
-          temperature={currentWeather}
-          max={tempMax}
-          min={tempMin}
-          situation={currentSituation}
-        />
-        <HorizontalCardList dataHorizontalList={nextHoursWeather} />
-        <VerticalCardList IVerticalListData={nextDailyWeather} />
-      </Background>
-    </Styled.Container>
+    <>
+      {loading
+        ? renderLoader(loading)
+        : renderHomeScreen(
+            place,
+            currentWeather,
+            tempMax,
+            tempMin,
+            currentSituation,
+            nextHoursWeather,
+            nextDailyWeather
+          )}
+    </>
   );
 };
