@@ -10,6 +10,7 @@ export interface IHeaderProps {
   temperature: number;
   min: number;
   max: number;
+  refreshData: () => void;
 }
 
 export const Header: React.FC<IHeaderProps> = ({
@@ -20,9 +21,13 @@ export const Header: React.FC<IHeaderProps> = ({
   max,
   situation,
   temperature,
+  refreshData,
 }) => {
   return (
     <Styled.Container {...assignTestId("View", testID)}>
+      <Styled.ButtonRefresh onPress={refreshData}>
+        <Styled.IconRefresh />
+      </Styled.ButtonRefresh>
       <Styled.Row>
         <Styled.SubTitle {...assignTestId("Text", `${testID}_title`)}>
           {city}, {state}

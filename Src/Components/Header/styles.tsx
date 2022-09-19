@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Feather } from "@expo/vector-icons";
 
 export const Container = styled.View`
   top: 10%;
@@ -27,3 +28,13 @@ export const SecondarySubTitle = styled.Text`
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const ButtonRefresh = styled.TouchableOpacity`
+  margin-left: auto;
+`;
+
+export const IconRefresh = styled(Feather).attrs({
+  name: "refresh-ccw",
+  color: "#fff",
+  size: 25,
+})``;
