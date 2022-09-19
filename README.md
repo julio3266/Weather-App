@@ -25,5 +25,5 @@ Abaixo temos as principais tecnologias por trás desta aplicação
 - Instale o [https://nodejs.org/en/](https://nodejs.org/en/) ou use o [nvm](https://github.com/nvm-sh/nvm) com a versão do NodeJS mais estável
 - Use o [Visual Studio Code ](https://code.visualstudio.com/) e instale os plugins `eslint`, `prettier` e `editor config` em sua IDE
 - Instale o [https://brew.sh](https://brew.sh/index_pt-br)
-
-#### iOS
+- yarn install
+- Ao startar o metro apertar I para ios e A para android no teclado
