@@ -101,7 +101,7 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
     );
   };
 
-  useMemo(() => {
+  useEffect(() => {
     fetchOpenWeatherCurrentData(coordinates?.lat, coordinates?.long)
       .then((weather: any) => {
         dispatch(
@@ -121,7 +121,6 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
 
   const handleRefreshData = useCallback(() => {
     dispatch(SetLoadingState({ isLoading: { loading: true } }));
-
     fetchOpenWeatherCurrentData(coordinates?.lat, coordinates?.long)
       .then((weather: any) => {
         dispatch(
@@ -135,9 +134,10 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
         );
         dispatch(SetLoadingState({ isLoading: { loading: false } }));
       })
-      .catch((error) => {});
-  }, []);
-
+      .catch((error) => {
+        alert(error);
+      });
+  }, [coordinates]);
   return (
     <>
       {loading

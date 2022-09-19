@@ -24,14 +24,18 @@ export const HorizontalCardList: React.FC<IHorizontalProps> = ({
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       data={dataHorizontalList}
-      renderItem={({ item }) => (
-        <Styled.Column {...assignTestId("View", `${testID}_column`)}>
-          <Styled.TitleList {...assignTestId("Text", `${testID}_title`)}>
+      renderItem={({ item, index }) => (
+        <Styled.Column {...assignTestId("View", `${testID}_column_${index}`)}>
+          <Styled.TitleList
+            {...assignTestId("Text", `${testID}_title_${index}`)}
+          >
             {item.hourly}
           </Styled.TitleList>
-          <Styled.IconView {...assignTestId("View", `${testID}_iconView`)}>
+          <Styled.IconView
+            {...assignTestId("View", `${testID}_iconView_${index}`)}
+          >
             <Styled.Icon
-              {...assignTestId("Image", `${testID}_icon`)}
+              {...assignTestId("Image", `${testID}_icon_${index}`)}
               source={{
                 uri: `http://openweathermap.org/img/wn/${item.icon}@4x.png`,
               }}
