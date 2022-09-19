@@ -2,7 +2,8 @@
   "compilerOptions": {},
   "extends": "expo/tsconfig.base",
   "exclude": [
-    "__tests__/**/*-test.ts",
+    "/**/*-test.ts",
     "Assets/*"
   ],
 }
+
