@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as Styled from "./styles";
 import {
@@ -19,11 +19,8 @@ import { VerticalCardList } from "../../Components/VerticalCardList";
 import { IReduxState } from "../../Store/types";
 import { fetchOpenWeatherCurrentData } from "../../Services/WeatherUtils";
 import { LoaderAnimated } from "../../Components/LoaderAnimated";
-import { assignTestId } from "../../utils/qualityAssurance";
 
-export interface IHomeScreenProps {
-  testID?: string;
-}
+export interface IHomeScreenProps {}
 
 const renderLoader = (loading) => {
   return <LoaderAnimated loading={loading} />;
@@ -37,12 +34,13 @@ const renderHomeScreen = (
   currentSituation,
   nextHoursWeather,
   nextDailyWeather,
-  testID
+  handleRefreshData
 ) => {
   return (
     <Styled.Container>
       <Background backgroundOfType={"night"} resizeTypeMode={"cover"}>
         <Header
+          refreshData={handleRefreshData}
           city={place?.city}
           state={place?.state}
           temperature={currentWeather}
@@ -57,9 +55,7 @@ const renderHomeScreen = (
   );
 };
 
-export const HomeScreen: React.FC<IHomeScreenProps> = ({
-  testID = "HomeScreenID",
-}) => {
+export const HomeScreen: React.FC<IHomeScreenProps> = () => {
   const dispatch = useDispatch();
   const { coordinates, place } = useSelector(
     (state: IReduxState) => state.location
@@ -123,6 +119,25 @@ export const HomeScreen: React.FC<IHomeScreenProps> = ({
       .catch((error) => {});
   }, [coordinates]);
 
+  const handleRefreshData = useCallback(() => {
+    dispatch(SetLoadingState({ isLoading: { loading: true } }));
+
+    fetchOpenWeatherCurrentData(coordinates?.lat, coordinates?.long)
+      .then((weather: any) => {
+        dispatch(
+          SetCurrentWeatherData({ currentWeather: weather?.weatherData })
+        );
+        dispatch(
+          SetWeatherPerHour({ nextHoursWeather: weather.weatherPerHour })
+        );
+        dispatch(
+          SetWeatherPerDaily({ nextDailyWeather: weather.weatherPerDaily })
+        );
+        dispatch(SetLoadingState({ isLoading: { loading: false } }));
+      })
+      .catch((error) => {});
+  }, []);
+
   return (
     <>
       {loading
@@ -135,7 +150,7 @@ export const HomeScreen: React.FC<IHomeScreenProps> = ({
             currentSituation,
             nextHoursWeather,
             nextDailyWeather,
-            testID
+            handleRefreshData
           )}
     </>
   );
