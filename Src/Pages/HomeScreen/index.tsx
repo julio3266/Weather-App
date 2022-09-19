@@ -19,8 +19,11 @@ import { VerticalCardList } from "../../Components/VerticalCardList";
 import { IReduxState } from "../../Store/types";
 import { fetchOpenWeatherCurrentData } from "../../Services/WeatherUtils";
 import { LoaderAnimated } from "../../Components/LoaderAnimated";
+import { assignTestId } from "../../utils/qualityAssurance";
 
-export interface IHomeScreenProps {}
+export interface IHomeScreenProps {
+  testID?: string;
+}
 
 const renderLoader = (loading) => {
   return <LoaderAnimated loading={loading} />;
@@ -33,7 +36,8 @@ const renderHomeScreen = (
   tempMin,
   currentSituation,
   nextHoursWeather,
-  nextDailyWeather
+  nextDailyWeather,
+  testID
 ) => {
   return (
     <Styled.Container>
@@ -53,7 +57,9 @@ const renderHomeScreen = (
   );
 };
 
-export const HomeScreen: React.FC<IHomeScreenProps> = () => {
+export const HomeScreen: React.FC<IHomeScreenProps> = ({
+  testID = "HomeScreenID",
+}) => {
   const dispatch = useDispatch();
   const { coordinates, place } = useSelector(
     (state: IReduxState) => state.location
@@ -128,7 +134,8 @@ export const HomeScreen: React.FC<IHomeScreenProps> = () => {
             tempMin,
             currentSituation,
             nextHoursWeather,
-            nextDailyWeather
+            nextDailyWeather,
+            testID
           )}
     </>
   );
