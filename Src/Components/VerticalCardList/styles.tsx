@@ -29,7 +29,7 @@ export const ListTitle = styled.Text`
 export const ListSubtitle = styled.Text`
   color: #fff;
   font-family: ${({ theme }) => theme.fonts.regular};
-  font-size: 20px;
+  font-size: 15px;
   width: 39.3%;
   padding: 2%;
   font-weight: 500;
@@ -37,7 +37,7 @@ export const ListSubtitle = styled.Text`
 
 export const ListSubtitleSecondary = styled.Text`
   color: ${({ theme }) => theme.colors.white};
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
 `;
 

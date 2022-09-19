@@ -1,28 +1,26 @@
 import styled from "styled-components/native";
 
 export const HorizontalList = styled.FlatList`
+  flex: 1;
   width: 100%;
-  max-height: 100px;
+  max-height: 12%;
   top: 30%;
   background-color: ${({ theme }) => theme.colors.blackTransparence};
   border-radius: 20px;
 `;
 
 export const Column = styled.View`
-  align-items: center;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Row = styled.View`
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const TitleList = styled.Text`
   color: ${({ theme }) => theme.colors.white};
-  padding: 5px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: ${({ theme }) => theme.fonts.regular}; ;
 `;
 
