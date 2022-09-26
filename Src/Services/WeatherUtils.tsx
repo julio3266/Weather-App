@@ -1,5 +1,4 @@
 import axios from "axios";
-import { weatherApiKey } from "../Config/config";
 import {
   ICurrentWeather,
   INextHoursWeather,
@@ -10,7 +9,7 @@ import { ptBR } from "date-fns/locale";
 export const fetchOpenWeatherCurrentData = async (latitude, longitude) => {
   let data = await axios
     .get(
-      `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&hourly&exclude=minutely&lang=pt_br&units=metric&cnt=4&appid=${weatherApiKey}`
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&hourly&exclude=minutely&lang=pt_br&units=metric&cnt=4&appid=a3ca55a79fecad83b5fed2b4f790e3fc`
     )
     .then((weather: any) => {
       const { weatherPerHour } = parsedWeatherDataPerHour(weather);
