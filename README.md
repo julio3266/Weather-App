@@ -16,8 +16,7 @@ Abaixo temos as principais tecnologias por trás desta aplicação
 - **Code Linting** with
   - [Airbnb's JS Linting](https://github.com/airbnb/javascript) guidelines
 - **UI Components**
-  - [Storybook](https://storybook.js.org/)
-- **StyledComponents**
+  - **StyledComponents**
   - [https://styled-components.com/docs/basics#getting-started](https://styled-components.com/docs/basics#getting-started)
 
 ## 🚀 Como começar
